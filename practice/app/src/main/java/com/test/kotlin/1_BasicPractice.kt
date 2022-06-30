@@ -1,21 +1,6 @@
 package com.test.kotlin
 
-fun main() {
-//    kotlinTest()
-//    println(add(2.2f,3))
-//
-//    val name : String = "정상훈"
-//    println("My name is ${name + 1}..") //  {} 생략 가능
-//
-//    checkNum(90)
-//
-//    arrayTest()
-//    forAndWhile()
-    nullCheck()
-}
-
 // 함수
-
 fun kotlinTest() {
     println("kotlin_test")
 }
@@ -24,7 +9,6 @@ fun add(a : Float, b: Int) = (a + b).toInt()
 
 
 // 조건문
-
 /*
 Expression & Statement
 값을 반환하면 Expression, 명령문: Statement
@@ -72,8 +56,8 @@ fun arrayTest() {
     println(list.get(4))
 }
 
-// 반복문 for & while
 
+// 반복문 for & while
 fun forAndWhile() {
     val numbers = arrayListOf(1,2,3,4,5)
     for (num in numbers) {
@@ -108,6 +92,7 @@ fun forAndWhile() {
     }
 }
 
+
 // 자바와 다른 가장 큰 특징
 // 7. Nullable / NonNull
 // 자바의 NPE => null값을 compile time에 확인 불가
@@ -135,7 +120,6 @@ fun nullCheck() {
 
     var fullName = lastName?:"성이 없습니다." + firstName
     println(fullName)
-
     // !! 연산자    컴파일러에게 null값이 들어가지 않을거다! 라고 알려주는 기능
     // 왠만하면 사용을 지양해야함
     var nName : String? = null
@@ -149,4 +133,16 @@ fun nullCheck() {
     }
 }
 
-// class
+fun main() {
+//    kotlinTest()
+//    println(add(2.2f,3))
+//
+//    val name : String = "정상훈"
+//    println("My name is ${name + 1}..") //  {} 생략 가능
+//
+//    checkNum(90)
+//
+//    arrayTest()
+//    forAndWhile()
+    nullCheck()
+}
