@@ -1,6 +1,6 @@
 package com.test.kotlin
 
-// object 선언을 하면 static 클래스가 됨
+// object 선언을 하면 static 클래스가 됨, 싱글톤 자동 지원
 object CarFactory {
     val cars = mutableListOf<Car>() // ArrayList 를 반환 ArrayListOf랑 동작이 같음
     fun makeCar(holesPower: Int): Car {
