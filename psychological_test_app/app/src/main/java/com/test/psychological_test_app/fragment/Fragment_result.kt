@@ -8,17 +8,19 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import com.test.psychological_test_app.R
 import com.test.psychological_test_app.TestResult
+import com.test.psychological_test_app.databinding.FragmentQuestionBinding
 import com.test.psychological_test_app.databinding.FragmentResultBinding
 
 class Fragment_result : Fragment() {
-    private lateinit var mBinding :FragmentResultBinding
+    private var _mbinding: FragmentResultBinding? = null
+    private val mBinding get() = _mbinding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        mBinding = FragmentResultBinding.inflate(inflater, container, false)
+        _mbinding = FragmentResultBinding.inflate(inflater, container, false)
         return mBinding.root
     }
 

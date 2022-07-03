@@ -20,47 +20,55 @@
         <!--weight sum 을 활용한 layout 설정-->
         <TextView
             android:id="@+id/tv_selection_1"
-            android:text="1. Throw it away."
-            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:layout_weight="1"
-            android:background="@drawable/selection" />
+            android:background="@drawable/selection"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:text="1. 꽃을 버린다."
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/tv_selection_2"
-            android:text="2. Water the flowers."
-            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:layout_weight="1"
-            android:background="@drawable/selection" />
+            android:background="@drawable/selection"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:text="2. 꽃에 물을 준다."
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/tv_selection_3"
-            android:text="3. Cut it off with sissors."
-            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:layout_weight="1"
-            android:background="@drawable/selection" />
+            android:background="@drawable/selection"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:text="3. 가위로 꽃을 자른다."
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/tv_selection_4"
-            android:text="4. Make them as dried flower."
-            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:layout_weight="1"
-            android:background="@drawable/selection" />
+            android:background="@drawable/selection"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:text="4. 꽃을 dry flower로 만든다."
+            android:textSize="20sp" />
 
     </LinearLayout>
 

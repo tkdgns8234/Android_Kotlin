@@ -19,8 +19,11 @@ import com.test.psychological_test_app.databinding.FragmentMainBinding
  */
 
 class Fragment_main : Fragment() {
-    private lateinit var mBinding: FragmentMainBinding
-    private lateinit var mNavController: NavController;
+    private var _mbinding: FragmentMainBinding? = null
+    private val mBinding get() = _mbinding!!
+
+//    private lateinit var mBinding: FragmentMainBinding
+    private lateinit var mNavController: NavController
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,7 +32,7 @@ class Fragment_main : Fragment() {
         // 뷰 바인딩
         // 액티비티 와는 다르게 layoutInflater 를 쓰지 않고 inflater 인자를 가져와 뷰와 연결한다.
         // (사실 두개는 동일한객체임, 시스템에서 main activity 의 inflater 를 전달해주는것으로 보임)
-        mBinding = FragmentMainBinding.inflate(inflater, container, false)
+        _mbinding = FragmentMainBinding.inflate(inflater, container, false)
         return mBinding.root
     }
 
@@ -46,5 +49,10 @@ class Fragment_main : Fragment() {
         }
 
         println("back stack cnt = " + parentFragmentManager.backStackEntryCount)
+    }
+
+    override fun onDestroy() {
+        _mbinding = null
+        super.onDestroy()
     }
 }

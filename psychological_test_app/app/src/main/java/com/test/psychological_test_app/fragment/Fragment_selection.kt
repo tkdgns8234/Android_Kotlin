@@ -9,17 +9,20 @@ import androidx.core.os.bundleOf
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import com.test.psychological_test_app.R
+import com.test.psychological_test_app.databinding.FragmentResultBinding
 import com.test.psychological_test_app.databinding.FragmentSelectionBinding
 
 class Fragment_selection : Fragment(), View.OnClickListener {
-    private lateinit var mBinding: FragmentSelectionBinding
+    private var _mbinding: FragmentSelectionBinding? = null
+    private val mBinding get() = _mbinding!!
+
     private lateinit var mNavController: NavController
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        mBinding = FragmentSelectionBinding.inflate(inflater, container, false)
+        _mbinding = FragmentSelectionBinding.inflate(inflater, container, false)
         return mBinding.root
     }
 

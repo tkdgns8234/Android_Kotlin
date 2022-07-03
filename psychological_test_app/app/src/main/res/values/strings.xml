@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">psychological_test_app</string>
     <string name="main_text">&#160;Let`s find out \n your love type!</string>
-    <string name="question_text">There were favorite flowers \n in the flower base. \n
-    As time goes, the flowers have all withered. \n
-        What are you going to do with that?
+    <string name="question_text"> 꽃받침에는 내가 좋아하는 꽃이 있었습니다.\n
+        시간이 지나면서 꽃은 모두 \n시들어 버렸는데요
+        \n 그걸로 무엇을 하시겠습니까?
     </string>
 
 </resources>

@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
+    android:paddingLeft="25dp"
+    android:paddingRight="25dp"
     tools:context=".fragment.Fragment_result">
 
 
@@ -12,8 +14,8 @@
         android:id="@+id/tv_result_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:fontFamily="sans-serif-black"
+        android:layout_marginTop="60dp"
+        android:fontFamily="monospace"
         android:gravity="center"
         android:text="The result is as below."
         android:textColor="@color/white"
@@ -26,8 +28,10 @@
         android:id="@+id/tv_result_sub"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-black"
+        android:layout_marginTop="50dp"
+        android:fontFamily="monospace"
         android:text="May be you give up on love too easily.."
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/iv_result_home"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

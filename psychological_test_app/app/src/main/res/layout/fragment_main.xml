@@ -15,9 +15,9 @@
         android:layout_marginTop="70dp"
         android:gravity="center"
         android:text="@string/main_text"
-        android:fontFamily="sans-serif-black"
+        android:fontFamily="monospace"
         android:textColor="@color/white"
-        android:textSize="34sp"
+        android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
