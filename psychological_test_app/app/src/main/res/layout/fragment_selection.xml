@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="14dp"
+    android:paddingRight="14dp"
+    tools:context=".fragment.Fragment_selection">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:weightSum="4"
+        app:layout_constraintBottom_toTopOf="@id/guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <!--weight sum 을 활용한 layout 설정-->
+        <TextView
+            android:id="@+id/tv_selection_1"
+            android:text="1. Throw it away."
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/selection" />
+
+        <TextView
+            android:id="@+id/tv_selection_2"
+            android:text="2. Water the flowers."
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/selection" />
+
+        <TextView
+            android:id="@+id/tv_selection_3"
+            android:text="3. Cut it off with sissors."
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/selection" />
+
+        <TextView
+            android:id="@+id/tv_selection_4"
+            android:text="4. Make them as dried flower."
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/selection" />
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.85" />
+    <!-- 여러 device 커버를 위해 왠만하면 위젯 요소들의 크기 percent 로 설정-->
+    <!-- kotlin 에 익숙해지면 recyclerview 로 변경하자 -->
+
+    <ImageView
+        android:id="@+id/iv_selection_back"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/previous"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

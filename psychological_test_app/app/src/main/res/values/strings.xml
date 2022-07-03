@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">psychological_test_app</string>
+    <string name="main_text">&#160;Let`s find out \n your love type!</string>
+    <string name="question_text">There were favorite flowers \n in the flower base. \n
+    As time goes, the flowers have all withered. \n
+        What are you going to do with that?
+    </string>
+
+</resources>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragment_main">
+
+    <fragment
+        android:id="@+id/fragment_main"
+        android:name="com.test.psychological_test_app.fragment.Fragment_main"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_fragment_main_to_fragment_question"
+            app:destination="@id/fragment_question"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_question"
+        android:name="com.test.psychological_test_app.fragment.Fragment_question"
+        android:label="fragment_question"
+        tools:layout="@layout/fragment_question" >
+        <action
+            android:id="@+id/action_fragment_question_to_fragment_selection"
+            app:destination="@id/fragment_selection"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_selection"
+        android:name="com.test.psychological_test_app.fragment.Fragment_selection"
+        android:label="fragment_selection"
+        tools:layout="@layout/fragment_selection" >
+        <action
+            android:id="@+id/action_fragment_selection_to_fragment_result"
+            app:destination="@id/fragment_result"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_result"
+        android:name="com.test.psychological_test_app.fragment.Fragment_result"
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+        app:popExitAnim="@anim/nav_default_pop_exit_anim" >
+        <action
+            android:id="@+id/action_fragment_result_to_fragment_main"
+            app:destination="@id/fragment_main"
+            app:popUpTo="@id/fragment_main"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
