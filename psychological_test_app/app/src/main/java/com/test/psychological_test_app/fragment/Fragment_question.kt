@@ -31,4 +31,9 @@ class Fragment_question : Fragment() {
             view.findNavController().navigate(R.id.action_fragment_question_to_fragment_selection)
         }
     }
+
+    override fun onDestroy() {
+        _mbinding = null
+        super.onDestroy()
+    }
 }

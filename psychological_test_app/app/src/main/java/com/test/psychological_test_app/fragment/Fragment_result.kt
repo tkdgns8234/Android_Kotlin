@@ -58,4 +58,9 @@ class Fragment_result : Fragment() {
         }
     }
 
+    override fun onDestroy() {
+        _mbinding = null
+        super.onDestroy()
+    }
+
 }

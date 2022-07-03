@@ -61,7 +61,12 @@ class Fragment_selection : Fragment(), View.OnClickListener {
         // val 은 그 자체로 상수인줄 알았는데 const?
         // const val -> 컴파일타임에 그 값이 결정되어야함을 의미 -> primitive 타입 데이터만 사용 가능
         // val ->  runtime에 결정됨  e.g) class 의 인스턴스 대입 가능
-        
+
         const val INDEX = "index"
+    }
+
+    override fun onDestroy() {
+        _mbinding = null
+        super.onDestroy()
     }
 }
