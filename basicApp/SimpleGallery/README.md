@@ -10,4 +10,4 @@
  + Navigation 에서 Safe Args 이용해 데이터 보내기
  + 기본적인 table layout 사용
  + ImageView에 둥근 모서리 효과 주기
-   + cardView 및 drawable의 shape 태그 이용
+   + cardView 및 drawable의 shape 태그 이용해보기
