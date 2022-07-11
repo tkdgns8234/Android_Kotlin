@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">BodyCalendar</string>
+    <string name="splash_text">세상엔 내맘처럼 되는일이 많지 않다 \n 운동처럼 노력한 만큼 결과가 나오는것도 없다. </string>
+    <string name="select_date">날짜를 선택해주세요</string>
+</resources>
