@@ -38,7 +38,7 @@ class RealtimeDatabase {
                 for (data in dataSnapshot.children) {
                     if (data.key != Constants.DB_MEMO_ID) {
                         memoList.add(data.getValue(Memo::class.java)!!)
-                        memoList.get(memoList.size-1).ID = data.key?.substring(2)?.toLong()
+                        memoList.get(memoList.size - 1).ID = data.key?.substring(2)?.toLong()
                     }
                 }
 
@@ -58,18 +58,20 @@ class RealtimeDatabase {
         // 해당 id로 새로운 memo 데이터를 만든다.ㄴ
         databaseUserRef.child(Constants.DB_MEMO_ID).get()
             .addOnSuccessListener {
-                val nextID = it.getValue(Long::class.java)!! + 1
+                var nextID =
+                    when (val id = it.getValue(Long::class.java)) {
+                        null -> 0L
+                        else -> id + 1
+                    }
 
                 val memo = Memo(date, memo, nextID)
                 val postValues = memo.toMap()
 
                 val childUpdates = hashMapOf<String, Any>()
                 childUpdates.put("${Constants.DB_MEMO_ID + nextID}", postValues)
-
                 databaseUserRef.updateChildren(childUpdates)
+
                 setDBUserID(nextID)
-            }.addOnFailureListener {
-                throw it
             }
     }
 
@@ -77,7 +79,7 @@ class RealtimeDatabase {
         databaseUserRef.child("${Constants.DB_MEMO_ID + id}").setValue(null)
     }
 
-    private fun setDBUserID(id : Long) {
+    private fun setDBUserID(id: Long) {
         databaseUserRef.child(Constants.DB_MEMO_ID).setValue(id)
     }
 

@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.*
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.hoon.body_calendar.R
@@ -56,7 +55,6 @@ class MainActivity : AppCompatActivity() {
         myViewAdapter = MyRecyclerViewAdapter()
         with(binding.recyclerViewMain) {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-            addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
             adapter = myViewAdapter
         }
 
