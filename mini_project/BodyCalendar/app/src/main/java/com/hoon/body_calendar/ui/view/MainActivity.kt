@@ -6,73 +6,62 @@ import android.icu.util.Calendar
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.DatePicker
-import android.widget.TextView
-import android.widget.Toast
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.ValueEventListener
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
+import android.widget.*
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.hoon.body_calendar.R
 import com.hoon.body_calendar.databinding.ActivityMainBinding
 import com.hoon.body_calendar.model.Memo
-import com.hoon.body_calendar.ui.adapter.MyListViewAdapter
-import com.hoon.body_calendar.util.Constants
-
+import com.hoon.body_calendar.model.RealtimeDatabase
+import com.hoon.body_calendar.ui.adapter.MyRecyclerViewAdapter
+import com.hoon.body_calendar.ui.callback.MyItemTouchHelperCallback
 
 /*
 TODO:
  1. list view를 Recycler view로 변경
- 2. view 위치 변경, 삭제 등 기능 추가 (참고 자료 https://www.youtube.com/watch?v=zNGVicOZ2ew)
+   -> 완료, listAdapter를 상속하도록 하여 item 업데이트를 효율적으로 하도록 도와주는 diff utils 적용
+   데이터 업데이트방법: submitList()
+ 2. 리사이클러뷰의 item 위치 변경 및 삭제 기능 추가 (참고 자료 https://www.youtube.com/watch?v=zNGVicOZ2ew)
+   -> 완료, 리사이클러뷰의 item touch callback 적용
+ 3. 유지보수성 향상을 위해 Database를 model 패키지로 빼서 따로 관리
+   -> 완료
+ 4. 앱에서 메모 순서를 변경했을 때 파이어베이스 DB의 데이터 위치도 동일하게 정렬시키기(메모의 ID값 이용)
  */
 
 class MainActivity : AppCompatActivity() {
-    private val binding by lazy {
-        ActivityMainBinding.inflate(layoutInflater)
-    }
-    private val databaseUserRef: DatabaseReference by lazy {
-        Firebase.database.reference.child(Constants.DB_APP_NAME).child(Constants.DB_TABLE_USER)
-            .child(Firebase.auth.currentUser!!.uid)
-    }
-    lateinit var myListViewAdapter : MyListViewAdapter
-    private val momoList = mutableListOf<Memo>()
+    private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
+    private val rDB by lazy { RealtimeDatabase() }
+
+    lateinit var myViewAdapter : MyRecyclerViewAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        setListView()
         setDataBase()
+        setListView()
         binding.floatingBtnCalendar.setOnClickListener { showCustomDialog() }
     }
 
     private fun setDataBase() {
-        val postListener = object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                momoList.clear()
-                // firebase 데이터 베이스에서 데이터 load
-                for (data in dataSnapshot.children) {
-                    Log.e(TAG, data.getValue(Memo::class.java).toString())
-                    momoList.add(data.getValue(Memo::class.java)!!)
-                }
-                myListViewAdapter.notifyDataSetChanged()
+        rDB.setOnDataChangeListener(object : RealtimeDatabase.OnDataChangeListener {
+            override fun onDataChange(memoList: MutableList<Memo>) {
+                myViewAdapter.submitList(memoList)
             }
-
-            override fun onCancelled(databaseError: DatabaseError) {
-                // Getting Post failed, log a message
-                Log.d(TAG, "loadPost:onCancelled", databaseError.toException())
-            }
-        }
-        databaseUserRef.addValueEventListener(postListener)
+        })
     }
 
     private fun setListView() {
-        myListViewAdapter = MyListViewAdapter(momoList)
-        binding.listViewMain.adapter = myListViewAdapter
+        myViewAdapter = MyRecyclerViewAdapter()
+        with(binding.recyclerViewMain) {
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+            addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+            adapter = myViewAdapter
+        }
+
+        val itemTouchHelperCallback = ItemTouchHelper(MyItemTouchHelperCallback(binding.recyclerViewMain, rDB))
+        itemTouchHelperCallback.attachToRecyclerView(binding.recyclerViewMain)
     }
 
     private fun showCustomDialog() {
@@ -90,7 +79,6 @@ class MainActivity : AppCompatActivity() {
 
         btnSave.setOnClickListener {
             // save data to realtime database !
-            val myRef = databaseUserRef
             val date = btnSelectDate.text.toString()
             val memo = etMemo.text.toString()
             Log.e(TAG, "val = $date$memo")
@@ -101,7 +89,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             // push() 사용 시 동일한 테이블 참조해도 중복 저장됨
-            myRef.push().setValue(Memo(date, memo))
+            rDB.writeData(date, memo)
             customDialog.dismiss()
         }
     }

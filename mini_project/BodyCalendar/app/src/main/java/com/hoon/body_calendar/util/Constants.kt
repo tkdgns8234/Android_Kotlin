@@ -6,5 +6,6 @@ class Constants {
         const val LOGIN_FAILED_MESSAGE = "비회원 로그인 실패, 운영자에게 문의하세요"
         const val DB_APP_NAME = "BodyCalendar"
         const val DB_TABLE_USER = "User"
+        const val DB_MEMO_ID = "ID"
     }
 }
