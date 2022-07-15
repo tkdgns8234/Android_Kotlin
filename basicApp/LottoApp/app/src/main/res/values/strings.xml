@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">LottoApp</string>
+    <string name="title">로또 번호 생성기</string>
     <string name="add_number">번호 추가하기</string>
     <string name="reset">초기화</string>
     <string name="auto_create">자동 생성 시작</string>
+
 </resources>

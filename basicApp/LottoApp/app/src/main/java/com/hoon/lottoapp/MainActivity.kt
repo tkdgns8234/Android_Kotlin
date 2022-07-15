@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import com.hoon.lottoapp.databinding.ActivityMainBinding
 
@@ -56,6 +57,7 @@ class MainActivity : AppCompatActivity() {
 
             textView.isVisible = true
             textView.text = number.toString()
+            setLottoNumberBackground(textView, number)
         }
     }
 
@@ -68,20 +70,38 @@ class MainActivity : AppCompatActivity() {
 
     private fun initAddBtn() {
         if (pickNumberSet.size >= 5) {
-            Toast.makeText(this, "번호는 5개까지만 입력 가능합니다",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "번호는 5개까지만 입력 가능합니다", Toast.LENGTH_SHORT).show()
             return
         }
 
         if (pickNumberSet.contains(binding.numberPicker.value)) {
-            Toast.makeText(this, "이미 선택한 번호입니다.",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "이미 선택한 번호입니다.", Toast.LENGTH_SHORT).show()
             return
         }
 
+        val number = binding.numberPicker.value
+
         val textView = numberTextViewList[pickNumberSet.size]
         textView.isVisible = true
-        textView.text = binding.numberPicker.value.toString()
+        textView.text = number.toString()
 
-        pickNumberSet.add(binding.numberPicker.value)
+        pickNumberSet.add(number)
+        setLottoNumberBackground(textView, number)
+    }
+
+    private fun setLottoNumberBackground(textView: TextView, number: Int) {
+        when (number) {
+            in 1..10 -> textView.background =
+                ContextCompat.getDrawable(this, R.drawable.circle_yellow)
+            in 11..20 -> textView.background =
+                ContextCompat.getDrawable(this, R.drawable.circle_blue)
+            in 21..30 -> textView.background =
+                ContextCompat.getDrawable(this, R.drawable.circle_red)
+            in 31..40 -> textView.background =
+                ContextCompat.getDrawable(this, R.drawable.circle_gray)
+            else -> textView.background =
+                ContextCompat.getDrawable(this, R.drawable.circle_gray)
+        }
     }
 
     private fun getRandomNumber(): List<Int> {

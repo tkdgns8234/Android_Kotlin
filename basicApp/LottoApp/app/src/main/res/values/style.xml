@@ -4,6 +4,8 @@
     <style name="lotto_number_style">
         <item name="android:textSize">18sp</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/bmhanna_ttf</item>
     </style>
 
 </resources>

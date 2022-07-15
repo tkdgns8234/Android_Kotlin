@@ -6,6 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:fontFamily="@font/bmhanna_ttf"
+        android:text="@string/title"
+        android:textColor="@color/myBlue"
+        android:textSize="25sp"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_margin="5dp"
+        android:background="@color/myBlue"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
     <NumberPicker
         android:id="@+id/numberPicker"
         android:layout_width="wrap_content"
@@ -22,7 +40,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="15dp"
+        android:fontFamily="@font/bmhanna_ttf"
         android:text="@string/add_number"
+        android:background="@drawable/btn_style"
         app:layout_constraintEnd_toStartOf="@+id/btn_clear"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
@@ -33,9 +53,11 @@
         android:id="@+id/btn_clear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/bmhanna_ttf"
         android:text="@string/reset"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
+        android:background="@drawable/btn_style"
         app:layout_constraintStart_toEndOf="@+id/btn_add_number"
         app:layout_constraintTop_toTopOf="@+id/btn_add_number" />
 
@@ -57,6 +79,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            android:background="@drawable/circle_blue"
+            android:gravity="center"
             android:text="1"
             android:visibility="gone"
             tools:visibility="visible" />
@@ -67,6 +91,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            android:background="@drawable/circle_yellow"
+            android:gravity="center"
             android:text="1"
             android:visibility="gone"
             tools:visibility="visible" />
@@ -77,6 +103,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            android:background="@drawable/circle_green"
+            android:gravity="center"
             android:text="1"
             android:visibility="gone"
             tools:visibility="visible" />
@@ -87,9 +115,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            android:background="@drawable/circle_red"
+            android:gravity="center"
             android:text="1"
             android:visibility="gone"
             tools:visibility="visible" />
+
 
         <TextView
             android:id="@+id/lotto_num_5"
@@ -97,6 +128,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            android:background="@drawable/circle_gray"
+            android:gravity="center"
             android:text="1"
             android:visibility="gone"
             tools:visibility="visible" />
@@ -107,6 +140,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            android:background="@drawable/circle_gray"
+            android:gravity="center"
             android:text="1"
             android:visibility="gone"
             tools:visibility="visible" />
@@ -121,7 +156,9 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="16dp"
+        android:fontFamily="@font/bmhanna_ttf"
         android:text="@string/auto_create"
+        android:background="@drawable/btn_style"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
