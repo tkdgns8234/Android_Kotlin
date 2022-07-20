@@ -9,6 +9,21 @@ import android.widget.SeekBar
 import com.hoon.pomodorotimer.databinding.ActivityMainBinding
 import kotlin.math.min
 
+/*
+배운점
+- seekbar 활용
+- timer 활용
+- sound pool 활용
+- constraint 레이아웃 baseline 활용
+- alpha 값을 조정하여 transparent 색상 만들기
+- vector 사용 이유
+-> 안드로이드 여러 해상도 지원해야함
+-> vector를 이용해 이미지파일 코드로 제공 -> 유연하게 대응 가능
+-> 장점: apk 용량이 줄어듦
+-> 제약: 150 * 150 이하의 img 파일만 설정하도록 권고
+https://developer.android.com/studio/write/vector-asset-studio?hl=ko
+ */
+
 class MainActivity : AppCompatActivity() {
     private val binding: ActivityMainBinding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
