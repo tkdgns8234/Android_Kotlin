@@ -41,7 +41,7 @@ class SoundVisualizerView(
 
     private val visualizerRepeatAction: Runnable = object : Runnable {
         override fun run() {
-            if (isReplaying) {
+            if (!isReplaying) {
                 val currBitDepth = onRequestCurrentBitDepth?.invoke() ?: 0
                 drawingBitDepth =  listOf(currBitDepth) + drawingBitDepth
             } else {
