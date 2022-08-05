@@ -88,6 +88,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
+            android:id="@+id/coverImageView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/purple_200" />
@@ -98,12 +99,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
+        android:text="재생 목록"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="재생 목록" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_playList"
@@ -187,7 +188,7 @@
         app:layout_constraintTop_toTopOf="@id/playerView" />
 
     <ImageView
-        android:id="@+id/iv_skip_prev"
+        android:id="@+id/iv_skip_next"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:src="@drawable/ic_skip_next_48"
@@ -198,7 +199,7 @@
         app:layout_constraintTop_toTopOf="@id/playerView" />
 
     <ImageView
-        android:id="@+id/iv_skip_next"
+        android:id="@+id/iv_skip_prev"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:src="@drawable/ic_skip_previous_48"

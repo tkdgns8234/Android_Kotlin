@@ -12,9 +12,10 @@ import com.hoon.melonplayer.databinding.ItemMusicBinding
 import com.hoon.melonplayer.model.MusicModel
 
 class PlayListAdapter(val onClick: (index: Int) -> Any) : ListAdapter<MusicModel, PlayListAdapter.ViewHolder>(diffutils) {
+
     inner class ViewHolder(private val binding: ItemMusicBinding) :RecyclerView.ViewHolder(binding.root){
+
         fun bind(musicModel: MusicModel) {
-            Log.e("test", "bind idx = ${musicModel.id}")
             binding.root.setOnClickListener { onClick(musicModel.id) }
             binding.tvMusicTitle.text = musicModel.title
             binding.tvArtist.text = musicModel.artist
@@ -30,6 +31,7 @@ class PlayListAdapter(val onClick: (index: Int) -> Any) : ListAdapter<MusicModel
                 binding.root.setBackgroundColor(Color.TRANSPARENT)
             }
         }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlayListAdapter.ViewHolder {
@@ -44,12 +46,10 @@ class PlayListAdapter(val onClick: (index: Int) -> Any) : ListAdapter<MusicModel
     companion object {
         private val diffutils = object : DiffUtil.ItemCallback<MusicModel>() {
             override fun areItemsTheSame(oldItem: MusicModel, newItem: MusicModel): Boolean {
-                Log.e("test==1", (oldItem == newItem).toString())
                 return oldItem.id == newItem.id
             }
 
             override fun areContentsTheSame(oldItem: MusicModel, newItem: MusicModel): Boolean {
-                Log.e("test==", (oldItem == newItem).toString())
                 return oldItem == newItem
             }
 
