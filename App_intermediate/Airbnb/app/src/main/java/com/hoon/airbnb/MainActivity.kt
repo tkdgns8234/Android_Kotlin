@@ -6,8 +6,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
+import com.hoon.airbnb.adapter.HotelListAdapter
+import com.hoon.airbnb.adapter.HotelViewPagerAdapter
 import com.hoon.airbnb.databinding.ActivityMainBinding
-import com.hoon.airbnb.databinding.DialogBottomSheetBinding
+import com.hoon.airbnb.model.Hotel
+import com.hoon.airbnb.model.HotelDTO
+import com.hoon.airbnb.model.HotelService
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.*
 import com.naver.maps.map.overlay.Marker
@@ -26,7 +30,7 @@ import retrofit2.converter.gson.GsonConverterFactory
  - fragmentManager의 findFragmentById 로 접근
 
  retrofit model 클래스의 key와 서버에서 response 하는 json key 값이 다르면 데이터를 못가져온다.
- 이것때문에 괜히 한참 삽질했다. 다음부턴 json to kotlin data class 플러그인을 사용하자..
+ 이것때문에 괜히 삽질했다. 다음부턴 json to kotlin data class 플러그인을 사용하자..
 
  viewPager2 -> 프래그먼트, 뷰 전환에 주로 사용됨
  */
@@ -66,6 +70,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
                 val hotel = viewPagerAdapter.currentList[position]
                 val cameraUpdate = CameraUpdate.scrollTo(LatLng(hotel.lat, hotel.lng))
+                    .animate(CameraAnimation.Fly)
                 naverMap.moveCamera(cameraUpdate)
             }
         })

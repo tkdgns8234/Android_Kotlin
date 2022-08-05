@@ -1,4 +1,4 @@
-package com.hoon.airbnb
+package com.hoon.airbnb.model
 
 import retrofit2.Call
 import retrofit2.http.GET

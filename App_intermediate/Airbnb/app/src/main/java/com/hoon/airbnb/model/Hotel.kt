@@ -1,4 +1,4 @@
-package com.hoon.airbnb
+package com.hoon.airbnb.model
 
 data class Hotel(
     val id: Int,

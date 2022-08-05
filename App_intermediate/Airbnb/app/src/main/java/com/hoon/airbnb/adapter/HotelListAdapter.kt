@@ -1,8 +1,7 @@
-package com.hoon.airbnb
+package com.hoon.airbnb.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.RoundedCorner
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -10,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.hoon.airbnb.model.Hotel
 import com.hoon.airbnb.databinding.ItemHotelListBinding
 
 class HotelListAdapter : ListAdapter<Hotel, HotelListAdapter.ViewHolder>(diffUtil) {
